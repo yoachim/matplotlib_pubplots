@@ -1,5 +1,30 @@
 import matplotlib as plt
+import os
 
+def plot_multi_format(plot_funcs, usetex=False, outdir='plots',
+                      setting_funcs=None):
+    """
+    input
+    -----
+    plot_funcs:  List of functions that return lists of matplotlib.figure objects and filename stems.
+    """
+    if setting_funcs is None:
+        setting_funcs = {'single': mpl_single_column,
+                         'slides': mpl_slides,
+                         'thumbnails': mpl_thumbnails}
+
+    if not os.path.exists(outdir):
+        os.makedirs(outdir)
+    # For python 3.4
+    # os.makedirs(outdir, exist_ok=True)
+
+    for key in setting_funcs.keys():
+        setting_funcs[key](usetex=usetex)
+        for plot_func in plot_funcs:
+            figs, names = plot_func()
+            for fig,name in zip(figs,names):
+                fig.savefig(os.path.join(outdir, key+'_'+name))
+            plt.close('all')
 
 def mpl_single_column(usetex=False):
     """
@@ -41,4 +66,9 @@ def mpl_thumbnails(usetex=False):
     """
     Make png thumbnails
     """
-    # XXX -- change the defaults above to pdf, remove .pdf from filename
+    plt.rcdefaults()
+    # The default PowerPoint page setup
+    plt.rc('figure', figsize=(10,7.5))
+
+
+# XXX -- change the defaults above to pdf, remove .pdf from filename
