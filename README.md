@@ -9,3 +9,8 @@ https://github.com/olgabot/prettyplotlib
 https://github.com/daler/matplotlibrc
 http://python4mpia.github.io/plotting/publication.html
 https://aas.org/authors/graphics-guidelines
+
+
+Fuck, I'm re-inventing matplotlib style sheets:
+http://matplotlib.org/users/style_sheets.html
+
