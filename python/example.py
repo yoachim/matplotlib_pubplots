@@ -1,6 +1,6 @@
 import matplotlib.pylab as plt
 import numpy as np
-from set_plot_params import mpl_single_column, mpl_span_columns,mpl_slides
+from set_plot_params import plot_multi_format
 
 
 def example_plot1():
@@ -12,22 +12,10 @@ def example_plot1():
     ax.set_xlabel('Time (s)')
     ax.set_ylabel('Temperature (K)')
     fig.tight_layout()
-    return [fig], ['example_1.pdf']
+    return [fig], ['example_1']
 
 
 if __name__ == '__main__':
 
-    setting_funcs = {'single':mpl_single_column,
-                     'span':mpl_span_columns, 'slides':mpl_slides}
     fig_funcs = [example_plot1]
-
-
-    # I could turn this loop into a function.
-
-    for key in setting_funcs.keys():
-        setting_funcs[key]()
-        for fig_func in fig_funcs:
-            figs, names = fig_func()
-            for fig,name in zip(figs,names):
-                fig.savefig(key+name)
-            plt.close('all')
+    plot_multi_format(fig_funcs)
