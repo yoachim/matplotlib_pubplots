@@ -1,7 +1,8 @@
 import matplotlib.pylab as plt
 import os
 
-def plot_multi_format(plot_funcs, usetex=False, outdir='plots',
+def plot_multi_format(plot_funcs, plot_kwargs=None,
+                      usetex=False, outdir='plots',
                       setting_funcs=None):
     """
     Outputs plots formatted 3 ways: Publication ready, PowerPoint ready, and png thumbnails.
@@ -21,10 +22,13 @@ def plot_multi_format(plot_funcs, usetex=False, outdir='plots',
     # For python 3.4
     # os.makedirs(outdir, exist_ok=True)
 
+    if plot_kwargs is None:
+        plot_kwargs=[{}]*len(plotFuncs)
+
     for key in setting_funcs.keys():
         setting_funcs[key](usetex=usetex)
-        for plot_func in plot_funcs:
-            figs, names = plot_func()
+        for plot_func,pkwargs in zip(plot_funcs,plot_kwargs):
+            figs, names = plot_func(**pkwargs)
             for fig,name in zip(figs,names):
                 fig.savefig(os.path.join(outdir, key+'_'+name))
             plt.close('all')
