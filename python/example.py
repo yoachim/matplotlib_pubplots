@@ -7,10 +7,12 @@ def example_plot1():
     fig = plt.figure(figsize=(4, 3))
     ax = fig.add_subplot(1, 1, 1)
     x = np.linspace(1., 8., 30)
-    ax.plot(x, x ** 1.5, color='k', ls='solid')
-    ax.plot(x, 20/x, color='0.50', ls='dashed')
+    ax.set_title('Title!')
+    ax.plot(x, x ** 1.5, color='k', ls='solid', label='line 1')
+    ax.plot(x, 20/x, color='0.50', ls='dashed', label='line 2')
     ax.set_xlabel('Time (s)')
     ax.set_ylabel('Temperature (K)')
+    ax.legend(loc='upper left')
     fig.tight_layout()
     return [fig], ['example_1']
 

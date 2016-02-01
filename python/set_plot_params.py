@@ -23,7 +23,7 @@ def plot_multi_format(plot_funcs, plot_kwargs=None,
     # os.makedirs(outdir, exist_ok=True)
 
     if plot_kwargs is None:
-        plot_kwargs=[{}]*len(plotFuncs)
+        plot_kwargs=[{}]*len(plot_funcs)
 
     for key in setting_funcs.keys():
         setting_funcs[key](usetex=usetex)
@@ -38,12 +38,23 @@ def mpl_single_column(usetex=False):
     Set matplotlib to make pretty plots for publishing in 2-column
     """
     plt.rcdefaults()
-    plt.rc('font', family='serif')
+    plt.rc('font', family='serif', size=12.0, style='normal')
     plt.rc('figure', figsize=(4,3))
+    plt.rc('axes', titlesize=12, labelsize=10)
+    plt.rc('legend', fontsize=8, numpoints=1, scatterpoints=1)
     plt.rc('xtick', labelsize='x-small')
     plt.rc('ytick', labelsize='x-small')
     plt.rc('text', usetex=usetex)
     plt.rc('savefig', format='pdf', bbox='tight')
+
+
+def mpl_span_columns(usetex=False):
+    """
+    Set matplotlib to make pretty plots for publishing a full-page figure
+    """
+
+    pass
+
 
 def mpl_slides(usetex=False):
     """
