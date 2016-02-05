@@ -4,7 +4,7 @@ from set_plot_params import plot_multi_format
 
 
 def example_plot1():
-    fig = plt.figure(figsize=(4, 3))
+    fig = plt.figure()
     ax = fig.add_subplot(1, 1, 1)
     x = np.linspace(1., 8., 30)
     ax.set_title('Title!')
