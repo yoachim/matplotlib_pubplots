@@ -16,6 +16,9 @@ def example_plot1():
     fig.tight_layout()
     return [fig], ['example_1']
 
+# Should make an OO example where __init__ sets up data, then methods plot it different ways. Should be able to just pass methods along...
+
+
 
 if __name__ == '__main__':
 

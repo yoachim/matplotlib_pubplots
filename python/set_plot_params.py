@@ -5,7 +5,8 @@ def plot_multi_format(plot_funcs, plot_kwargs=None,
                       usetex=False, outdir='plots',
                       setting_funcs=['single', 'span', 'slides', 'thumbnails']):
     """
-    Outputs plots formatted 3 ways: Publication ready, PowerPoint ready, and png thumbnails.
+    Outputs plots formatted 4 ways: Publication ready (narrow and wide),
+    PowerPoint ready, and png thumbnails.
 
     input
     -----
