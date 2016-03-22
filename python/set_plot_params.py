@@ -70,10 +70,10 @@ def mpl_slides(usetex=False):
     Set matplotlibrc to make pretty slides
     """
     plt.rcdefaults()
-    plt.rc('font', family='serif', size=18)
+    plt.rc('font', family='serif', size=24)
     # The default PowerPoint page setup
     plt.rc('figure', figsize=(7,5.5))
-    plt.rc('axes', titlesize=24, labelsize=16, linewidth=3)
+    plt.rc('axes', titlesize=24, labelsize=20, linewidth=3)
     plt.rc('legend', fontsize=18, numpoints=1, scatterpoints=1)
     plt.rc('xtick', labelsize='small')
     plt.rc('ytick', labelsize='small')

@@ -11,7 +11,12 @@ https://github.com/daler/matplotlibrc
 http://python4mpia.github.io/plotting/publication.html
 https://aas.org/authors/graphics-guidelines
 
-
 Fuck, I'm kinda re-inventing matplotlib style sheets:
 http://matplotlib.org/users/style_sheets.html
+
+
+Please Contribute!
+------------------
+
+Do you have a favorite way to generate publication quality plots with matplotlib? Make an issue describing it so I can put it in the code. Or, even better, modify the code and make a pull request!
 
